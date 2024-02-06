@@ -11,9 +11,10 @@ const Form = ({ onSubmit, inputsData }) => {
 
   const inputs = inputsData.map((inputData) => (
     <FormInput
-      labelText={inputData.label}
+      labelText={inputData.labelText}
       name={inputData.name}
       type={inputData.type}
+      pattern={inputData.pattern}
       key={inputData.key}
     />
   ));

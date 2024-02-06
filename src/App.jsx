@@ -1,5 +1,5 @@
 // import Gallery from "./components/Gallery/Gallery";
-// import { useState } from "react";
+import { useState } from "react";
 // import Counter from "./components/Counter/Counter";
 // import Slider from "./components/Slider/Slider";
 
@@ -9,26 +9,30 @@ const App = () => {
   const inputsData = [
     {
       type: "text",
-      label: "Name",
+      labelText: "Name",
       name: "name",
+      pattern: '\\w{1,4}'
     },
 
     {
       type: "text",
-      label: "Surname",
+      labelText: "Surname",
       name: "Surname",
+      pattern: '\\w{1,5}'
     },
 
     {
       type: "text",
-      label: "Middle Name",
+      labelText: "Middle Name",
       name: "Middle Name",
+      pattern: '\\w{1,6}'
     },
 
     {
       type: "password",
-      label: "password",
+      labelText: "password",
       name: "password",
+      pattern: '\\w{1,7}'
     },
   ].map((x) => {
     x.key = crypto.randomUUID();
@@ -37,6 +41,8 @@ const App = () => {
   const handleSubmit = (formData) => {
     console.log([...formData]);
   };
+
+
   return (
     <>
       <Form onSubmit={handleSubmit} inputsData={inputsData} />
