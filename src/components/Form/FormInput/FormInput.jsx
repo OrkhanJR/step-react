@@ -1,17 +1,13 @@
 import { useId, useState } from "react";
 
-const FormInput = ({ labelText, type = "text", name, pattern, inputsData }) => {
+const FormInput = ({ labelText, type = "text", name, pattern }) => {
   const id = useId();
 
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(false);  
   const handleInput = (e) => {
     const regexp = new RegExp("^" + pattern + "$", "ig");
     const test = regexp.test(e.target.value);
-    const inputs = inputsData;
-
-    if (test) {
-      setIsValid(test);
-    }
+    setIsValid(test);
   };
   return (
     <>
